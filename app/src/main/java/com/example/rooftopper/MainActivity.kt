@@ -4,12 +4,12 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.gestures.ModifierLocalScrollableContainerProvider.value
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -21,6 +21,7 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.rooftopper.ui.theme.RooftopperTheme
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,17 +56,19 @@ fun ItemCard() {
 }
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Preview
 @Composable
 fun addItem() {
-    // Aks location permission if not already
 var text by remember {mutableStateOf(TextFieldValue(""))}
+    
     TextField(
-        value = text,
-        onValueChange = { newText -> text = newText},
-        label = { Text(text = "Location name")},
-        placeholder = { Text(text = "Boudewijnlaan 10, 9000 Gent")}
-    ) {
-    }
+        value = text, onValueChange = {newText -> text = newText},
+        label = { Text(text = "Give your location a name")},
+        singleLine = true
+
+    )
+    
+
 }
 
