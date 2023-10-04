@@ -3,17 +3,23 @@ package com.example.rooftopper
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CardElevation
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -33,8 +39,16 @@ class MainActivity : ComponentActivity() {
             RooftopperTheme {
                 // A surface container using the 'background' color from the theme
 
-                Box {
-                    itemFullScreen("Placeholder")
+                Column {
+
+                    listItem()
+                    Spacer(modifier = Modifier.height(2.dp))
+                    listItem()
+                    Spacer(modifier = Modifier.height(2.dp))
+                    listItem()
+                    Spacer(modifier = Modifier.height(2.dp))
+                    listItem()
+
                 }
                 
 
@@ -97,6 +111,41 @@ fun itemFullScreen(title: String = "Constructiesite m. kraan") {
         Text(text = "Comments")
     }
 
+}
+
+@Composable
+fun listItem(titel: String = "titel placeholder", locatie: String = "locatie placeholder", date: String = "15/03/2023") {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth(),
+        RoundedCornerShape(0.dp),
+        elevation = CardElevation(1.dp)
+    ) {
+
+        Row {
+
+            Box (
+                modifier = Modifier
+                    .width(100.dp)
+                    .height(100.dp)
+            ){
+                Image(
+                    painter = painterResource(id = R.drawable.construction),
+                    contentDescription = "",
+                    contentScale = ContentScale.Crop
+                )
+            }
+
+            Column {
+                Text(text = titel)
+                Text(text = locatie)
+                Text(text = date)
+            }
 
 
+
+
+        }
+
+    }
 }
