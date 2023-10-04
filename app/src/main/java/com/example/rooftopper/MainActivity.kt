@@ -20,6 +20,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CardElevation
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -119,7 +120,10 @@ fun listItem(titel: String = "titel placeholder", locatie: String = "locatie pla
         modifier = Modifier
             .fillMaxWidth(),
         RoundedCornerShape(0.dp),
-        elevation = CardElevation(1.dp)
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.onPrimary
+        ),
+
     ) {
 
         Row {
@@ -136,7 +140,7 @@ fun listItem(titel: String = "titel placeholder", locatie: String = "locatie pla
                 )
             }
 
-            Column {
+            Column (modifier = Modifier.padding(8.dp)) {
                 Text(text = titel)
                 Text(text = locatie)
                 Text(text = date)
