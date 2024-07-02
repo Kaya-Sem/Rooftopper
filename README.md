@@ -1,5 +1,5 @@
 
-# 🌇 Rooftopper
+# 🏙️ Rooftopper
 
 
 ### Rooftopping locations near you!
@@ -19,6 +19,6 @@
 
 ---
 
-todo: telegram link, discord, ...
+todo: telegram link, 
 
 [![Discord](https://img.shields.io/discord/1257713493759754281?label=Discord&logo=discord)](https://discord.gg/bBjqhfckf5)
